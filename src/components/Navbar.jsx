@@ -7,29 +7,22 @@ import Button from "./common/Button";
 export default function Navbar() {
   const [open, setOpen] = useState(false);
 
-  // Helper for active link styling
   const navLinkClass = ({ isActive }) =>
     `transition-colors ${isActive
       ? "text-brand-primary font-semibold"
       : "text-text-muted hover:text-brand-primary"
     }`;
 
-  // Prevent body scroll when mobile menu is open
   useEffect(() => {
     if (open) {
       document.body.style.overflow = "hidden";
     } else {
       document.body.style.overflow = "auto";
     }
-    // cleanup when unmounting
     return () => {
       document.body.style.overflow = "auto";
     };
   }, [open]);
-
-  const handleDonate = () => {
-    alert('Donation functionality coming soon');
-  };
 
   return (
     <nav className="fixed top-0 left-0 w-full bg-bg-white shadow-sm z-50 transition-colors">
@@ -46,6 +39,11 @@ export default function Navbar() {
         {/* Desktop Menu */}
         <ul className="hidden md:flex items-center space-x-8 font-medium">
           <li>
+            <NavLink to="/" className={navLinkClass}>
+              Home
+            </NavLink>
+          </li>
+          <li>
             <NavLink to="/programs" className={navLinkClass}>
               Programs
             </NavLink>
@@ -58,19 +56,14 @@ export default function Navbar() {
         </ul>
 
         <div className="flex items-center space-x-4">
-          {/* Theme toggle */}
           <ThemeToggle />
-
-          {/* Donate button */}
           <Button
-            onClick={handleDonate}
+            onClick={() => window.open('https://paystack.shop/pay/eefmjuc6s1', '_blank')}
             variant="primary"
             className="hidden md:inline-flex"
           >
             Donate Now
           </Button>
-
-          {/* Mobile Menu Button */}
           <button
             onClick={() => setOpen(!open)}
             aria-label="Toggle mobile menu"
@@ -86,23 +79,21 @@ export default function Navbar() {
       {open && (
         <div
           className="
-            md:hidden
-            fixed
-            left-0
-            right-0
-            h-[calc(100vh-7vh)]  /* full height minus navbar */
-            z-40
-            backdrop-blur-lg
-            bg-bg-mute/60
-            border-t border-border-soft/20
-            flex
-            flex-col
-            items-center
-            justify-start
-            pt-44
+            md:hidden fixed left-0 right-0 h-[calc(100vh-7vh)] z-40
+            backdrop-blur-lg bg-bg-mute/60 border-t border-border-soft/20
+            flex flex-col items-center justify-start pt-44
           "
         >
           <ul className="flex flex-col items-center space-y-6 font-medium">
+            <li>
+              <NavLink
+                to="/"
+                onClick={() => setOpen(false)}
+                className={navLinkClass}
+              >
+                Home
+              </NavLink>
+            </li>
             <li>
               <NavLink
                 to="/programs"
@@ -125,7 +116,7 @@ export default function Navbar() {
               <Button
                 onClick={() => {
                   setOpen(false);
-                  handleDonate();
+                  window.open('https://paystack.shop/pay/eefmjuc6s1', '_blank');
                 }}
                 variant="primary"
                 className="w-full text-center"

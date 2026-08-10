@@ -51,7 +51,7 @@ const Actions = () => {
                         With your gift, we can do more. Support a woman to begin her tech journey today.
                     </Motion.p>
                     <Button
-                        onClick={() => openInNewTab('https://paystack.shop/pay/mnd475208x')}
+                        onClick={() => openInNewTab('https://paystack.shop/pay/eefmjuc6s1')}
                         aria-label="Donate to GirlLEAD - opens in a new tab"
                         variant="outline"
                     >
@@ -92,7 +92,7 @@ const Actions = () => {
                         Ready to make an impact? Volunteer your time and skills to empower women in Africa -  Join our team today.
                     </Motion.p>
                     <Button
-                        onClick={() => openInNewTab('https://docs.google.com/forms/d/e/1FAIpQLSeQYaOkutAMgOrE-pXAUFOReqPbh7mysGV3_FN5rKTLB25Xpw/viewform?usp=pp_url')}
+                        onClick={() => openInNewTab('https://forms.gle/cdxiKqPrBpGXucq29')}
                         aria-label="Volunteer with GirlLEAD - opens in a new tab"
                         variant="deep"
                     >

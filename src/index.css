@@ -1,7 +1,9 @@
 @import "tailwindcss";
 
 @theme {
-  --font-inter: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --font-family: 'Lato', ui-sans-serif, system-ui, sans-serif;
+  
+  
 
   /* Backgrounds */
   --color-bg-white: #FFFFFF;
